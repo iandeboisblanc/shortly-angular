@@ -36,7 +36,6 @@ describe('Services', function () {
         { title: 'Reddit',
           url: 'https://reddit.com/r/javascript' }
       ];
-
       $httpBackend.expect('GET', '/api/links').respond(mockResponse);
 
       Links.getAll().then(function (links) {
