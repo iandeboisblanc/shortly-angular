@@ -12,9 +12,10 @@ angular.module('shortly.services', [])
       });
     });
   };
-  fac.addOne = function (link) {
+  fac.addOne = function (linkObj) {
     return $http({
       method: 'POST',
+      data: linkObj,
       url: '/api/links'
     });
   };
