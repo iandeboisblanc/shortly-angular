@@ -7,7 +7,8 @@ angular.module('shortly.services', [])
       method: 'GET',
       url: '/api/links'
     }).then(function (links) {
-      return $q(function (resolve, reject) {
+      console.log('dem links____________', links);
+      return $q(function (resolve) {
         resolve(links.data);
       });
     });
@@ -16,7 +17,8 @@ angular.module('shortly.services', [])
     console.log('TRYNA ADD A LINK!', linkObj);
     return $http({
       method: 'POST',
-      data: linkObj,
+      contentType: 'application/json',
+      data: JSON.stringify(linkObj),
       url: '/api/links'
     });
   };

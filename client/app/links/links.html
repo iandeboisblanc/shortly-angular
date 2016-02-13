@@ -9,6 +9,15 @@
   </div>
   <input class="filter" ng-model="a" placeholder="filter"/>
   <ul>
-    <li ng-repeat="link in data.links">{{ link }}</li>
+    <li ng-repeat="link in data.links">
+      <img src='assets/redirect_icon.png'/>
+      <div class='info'>
+      <div class='visits'><span class='count'>{{ link.visits }}</span>Visits</div>
+      <div class='title'>{{ link.title }}</div>
+      <div class='original'>{{ link.url }}</div>
+      <a href='{{ link.baseUrl }}/{{ link.code }}'>{{ link.baseUrl }}/{{ link.code }}</a>
+    </li>
   </ul>
+  <hr>
+  <span>{{ data }}</span>
 </div>
