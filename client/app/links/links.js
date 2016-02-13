@@ -6,7 +6,7 @@ angular.module('shortly.links', [])
     var title = link.title;
     var url = link.url;
     console.log(text);
-    return true;
+    return (title.indexOf(text) >= 0 || url.indexOf(text) >= 0 || text.length === 0);
   };
   $scope.data = {};
   Links.getAll().then(function (links) {
