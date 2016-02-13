@@ -7,11 +7,14 @@
     </ul>
     <a href='/logout' class='logout'>Logout</a>
   </div>
-  <form name='shortForm'> 
-    <input type='url' ng-model='link.url' />
+  <form name='shortForm' novalidate> 
+    <input type='url' ng-model='link.url' required />
     <button ng-click='addLink()'>Add</button>
   </form>
-  <!-- <span ng-show='{{ $valid }}'>ISVALID?</span> -->
+  <div class='alert'>
+    <span class='urlError' ng-show='shortForm.$error.url && shortForm.$dirty'>Invalid Entry</span>
+    <span class='reqError' ng-show='shortForm.$error.required && shortForm.$dirty'>Please enter Valid URL</span>
+  </div>
   <hr>
   <span>{{ shortForm.$valid }}</span>
 </div>
