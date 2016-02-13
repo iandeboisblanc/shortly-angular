@@ -7,7 +7,6 @@ angular.module('shortly.services', [])
       method: 'GET',
       url: '/api/links'
     }).then(function (links) {
-      console.log('dem links____________', links);
       return $q(function (resolve) {
         resolve(links.data);
       });
