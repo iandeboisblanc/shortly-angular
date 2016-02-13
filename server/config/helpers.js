@@ -17,6 +17,7 @@ module.exports = {
     var user;
 
     if (!token) {
+      // res.redirect('/#/signin');
       return res.send(403); // send forbidden if a token is not provided
     }
 

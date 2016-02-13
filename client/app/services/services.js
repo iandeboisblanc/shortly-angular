@@ -13,6 +13,7 @@ angular.module('shortly.services', [])
     });
   };
   fac.addOne = function (linkObj) {
+    console.log('TRYNA ADD A LINK!', linkObj);
     return $http({
       method: 'POST',
       data: linkObj,

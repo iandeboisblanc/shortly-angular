@@ -7,4 +7,8 @@
     </ul>
     <a href='/logout' class='logout'>Logout</a>
   </div>
+  <input class="filter" ng-model="a" placeholder="filter"/>
+  <ul>
+    <li ng-repeat="link in data.links">{{ link }}</li>
+  </ul>
 </div>
