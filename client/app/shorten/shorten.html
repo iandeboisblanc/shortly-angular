@@ -7,10 +7,13 @@
     </ul>
     <a href='/logout' class='logout'>Logout</a>
   </div>
-  <input ng-model='link.url' />
-  <button ng-click='addLink()'>Add</button>
+  <form name='shortForm'> 
+    <input type='url' ng-model='link.url' />
+    <button ng-click='addLink()'>Add</button>
+  </form>
+  <!-- <span ng-show='{{ $valid }}'>ISVALID?</span> -->
   <hr>
-  <span>{{ link.url + link }}</span>
+  <span>{{ shortForm.$valid }}</span>
 </div>
 
 
