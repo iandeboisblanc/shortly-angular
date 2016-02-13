@@ -21,7 +21,6 @@ module.exports = {
 
   newLink: function (req, res, next) {
     var url = req.body.url;
-    console.log('____Got a url post request for', req.body.url);
     if (!util.isValidUrl(url)) {
       return next(new Error('Not a valid url'));
     }
@@ -41,7 +40,6 @@ module.exports = {
             base_url: req.headers.origin,
             title: title
           };
-          console.log('DIS IS OUR NEWLINK, BITCH!:', newLink);
           return createLink(newLink);
         }
       })

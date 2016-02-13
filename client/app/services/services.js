@@ -12,13 +12,14 @@ angular.module('shortly.services', [])
       });
     });
   };
-  fac.addOne = function (linkObj) {
-    console.log('TRYNA ADD A LINK!', linkObj);
+  fac.addOne = function (linkObj, cb) {
     return $http({
       method: 'POST',
       contentType: 'application/json',
       data: JSON.stringify(linkObj),
       url: '/api/links'
+    }).then(function (dataObj) {
+      cb(dataObj.data);
     });
   };
   return fac;

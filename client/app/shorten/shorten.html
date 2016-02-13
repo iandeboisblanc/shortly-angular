@@ -15,8 +15,19 @@
     <span class='urlError' ng-show='shortForm.$error.url && shortForm.$dirty'>Invalid Entry</span>
     <span class='reqError' ng-show='shortForm.$error.required && shortForm.$dirty'>Please enter Valid URL</span>
   </div>
+  <ul>
+    <li class='link' ng-show="shouldShow">
+      <img src='assets/redirect_icon.png'/>
+      <div class='info'>
+      <div class='visits'><span class='count'>{{ createdLink.visits }}</span>Visits</div>
+      <div class='title'>{{ createdLink.title }}</div>
+      <div class='original'>{{ createdLink.url }}</div>
+      <a href='{{ createdLink.base_url }}/{{ createdLink.code }}'>{{ createdLink.base_url + '/' + createdLink.code }}</a>
+    </li>
+  </ul>
+
   <hr>
-  <span>{{ shortForm.$valid }}</span>
+  <span>{{ createdLink }}</span>
 </div>
 
 

@@ -2,11 +2,13 @@ angular.module('shortly.shorten', [])
 
 .controller('ShortenController', function ($scope, $location, Links) {
   $scope.link = {};
+  $scope.shouldShow = false;
+  $scope.createdLink = {};
   $scope.addLink = function () {
-    if ($scope.shortForm.$valid) {
-      console.log('form is VALID!!');
-    }
-    Links.addOne($scope.link);
+    Links.addOne($scope.link, function (data) {
+      $scope.createdLink = data;
+      $scope.shouldShow = true;
+    });
     $scope.link.url = '';
   };
 });
