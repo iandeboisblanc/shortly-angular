@@ -1,8 +1,9 @@
-angular.module('shortly.links', [])
+angular.module('shortly.links', ['shortly.services'])
 
-.controller('LinksController', function ($scope, Links) {
+.controller('LinksController', function ($scope, Links, Auth) {
   $scope.nameContains = function (link) {
-    var text = $scope.filterInput.toLowerCase() || '';
+    var text = $scope.filterInput || '';
+    text = text.toLowerCase();
     var title = link.title.toLowerCase();
     var url = link.url.toLowerCase();
     console.log(text);
@@ -12,4 +13,5 @@ angular.module('shortly.links', [])
   Links.getAll().then(function (links) {
     $scope.data.links = links;
   });
+  $scope.signout = Auth.signout;
 });
